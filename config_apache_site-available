@@ -1,0 +1,42 @@
+# /etc/apache2/sites-available/schoolish.conf
+
+<VirtualHost *:80>
+    ServerAdmin admin@schoolish
+    ServerName schoolish
+    ServerAlias www.schoolish
+
+    DocumentRoot /var/www/html/schoolish
+
+    <Directory /var/www/html/schoolish>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/schoolish_error.log
+    CustomLog ${APACHE_LOG_DIR}/schoolish_access.log combined
+
+</VirtualHost>
+
+# <VirtualHost *:443>
+#     ServerAdmin admin@schoolish
+#     ServerName schoolish
+#     ServerAlias www.schoolish
+
+#     DocumentRoot /var/www/html/schoolish
+
+#     <Directory /var/www/html/schoolish>
+#         Options Indexes FollowSymLinks
+#         AllowOverride All
+#         Require all granted
+#     </Directory>
+
+#     SSLEngine on
+#     SSLCertificateFile /etc/ssl/certs/schoolish.crt
+#     SSLCertificateKeyFile /etc/ssl/private/schoolish.key
+#     SSLCertificateChainFile /etc/ssl/certs/schoolish-chain.crt
+
+#     ErrorLog ${APACHE_LOG_DIR}/schoolish_ssl_error.log
+#     CustomLog ${APACHE_LOG_DIR}/schoolish_ssl_access.log combined
+
+# </VirtualHost>
